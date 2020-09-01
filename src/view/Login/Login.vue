@@ -41,6 +41,11 @@
                         @click:append="show1 = !show1"
                       ></v-text-field>
                     </v-col>
+
+                    <v-col cols="12">
+                       <a @click="showRememberTab()" >  <span > <b>Şifremi unuttum</b>  </span></a>
+                    </v-col>
+
                     <v-col class="d-flex" cols="12" sm="6" xsm="12"> </v-col>
                     <v-spacer></v-spacer>
                     <v-col class="d-flex" cols="12" sm="3" xsm="12" align-end>
@@ -59,29 +64,12 @@
               </v-card-text>
             </v-card>
           </v-tab-item>
-          <v-tab-item>
+          <v-tab-item v-if="tabs.length>1">
             <v-card class="px-4">
               <v-card-text>
                 <v-form ref="registerForm" v-model="valid" lazy-validation>
                   <v-row>
-                    <v-col cols="12" sm="6" md="6">
-                      <v-text-field
-                        v-model="firstName"
-                        :rules="[rules.required]"
-                        label="First Name"
-                        maxlength="20"
-                        required
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12" sm="6" md="6">
-                      <v-text-field
-                        v-model="lastName"
-                        :rules="[rules.required]"
-                        label="Last Name"
-                        maxlength="20"
-                        required
-                      ></v-text-field>
-                    </v-col>
+                   
                     <v-col cols="12">
                       <v-text-field
                         v-model="email"
@@ -90,32 +78,7 @@
                         required
                       ></v-text-field>
                     </v-col>
-                    <v-col cols="12">
-                      <v-text-field
-                        v-model="password"
-                        :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-                        :rules="[rules.required, rules.min]"
-                        :type="show1 ? 'text' : 'password'"
-                        name="input-10-1"
-                        label="Password"
-                        hint="At least 8 characters"
-                        counter
-                        @click:append="show1 = !show1"
-                      ></v-text-field>
-                    </v-col>
-                    <v-col cols="12">
-                      <v-text-field
-                        block
-                        v-model="verify"
-                        :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-                        :rules="[rules.required, passwordMatch]"
-                        :type="show1 ? 'text' : 'password'"
-                        name="input-10-1"
-                        label="Confirm Password"
-                        counter
-                        @click:append="show1 = !show1"
-                      ></v-text-field>
-                    </v-col>
+
                     <v-spacer></v-spacer>
                     <v-col class="d-flex ml-auto" cols="12" sm="3" xsm="12">
                       <v-btn
@@ -150,6 +113,13 @@ export default {
     },
   },
   methods: {
+
+    showRememberTab(){
+      var obj = { name: "Forget Password", icon: "mdi-account-outline" };
+      var isAdded = this.tabs.find(x=>x.name==obj.name);
+      if(isAdded==null) this.tabs.push(obj);
+    },
+
     validate() {
       if (this.$refs.loginForm.validate()) {
         // submit form to server/API here...
@@ -167,7 +137,7 @@ export default {
     tab: 0,
     tabs: [
       { name: "Login", icon: "mdi-account" },
-      { name: "Register", icon: "mdi-account-outline" },
+      // { name: "Register", icon: "mdi-account-outline" },
     ],
     valid: true,
 
