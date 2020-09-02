@@ -27,7 +27,7 @@
         label="Image"
       ></v-file-input>
 
-      <v-btn class="mr-4" @click="submit">Ekle</v-btn>
+      <v-btn class="mr-4" @click="submit">Add</v-btn>
     </form>
   </ValidationObserver>
 </template>
