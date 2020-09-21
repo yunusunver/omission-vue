@@ -10,6 +10,7 @@ import AddCode from "../view/Code/CodeAdd.vue";
 import ListCategory from "../view/Category/ListCategory.vue";
 import AddCategory from "../view/Category/AddCategory.vue";
 import Profile from "../view/User/Profile.vue";
+import { RoutePaths } from "../utility/const";
 
 const router = new VueRouter({
   routes: [
@@ -17,18 +18,19 @@ const router = new VueRouter({
       path: "/",
       component: Home,
       children: [
-        { path: "codelist", alias: "kod-listesi", component: CodeList },
-        { path: "codeadd", alias: "kod-ekle", component: AddCode },
+        { path: RoutePaths.ListCodes.path, name: RoutePaths.ListCodes.name, alias: RoutePaths.ListCodes.alias, component: CodeList },
+        { path: RoutePaths.AddCode.path, name: RoutePaths.AddCode.name, alias: RoutePaths.AddCode.alias, component: AddCode },
         {
-          path: "categorylist",
-          alias: "kategori-listesi",
+          path: RoutePaths.ListCategory.path,
+          alias: RoutePaths.ListCategory.alias,
           component: ListCategory,
+          name: RoutePaths.ListCategory.name
         },
-        { path: "categoryadd", alias: "kategori-ekle", component: AddCategory },
-        { path: "myprofile", alias: "profilim", component: Profile },
+        { path: RoutePaths.AddCategory.path, name: RoutePaths.AddCode.name, alias: RoutePaths.AddCategory.alias, component: AddCategory },
+        { path: RoutePaths.MyProfile.path, name: RoutePaths.MyProfile.name, alias: RoutePaths.MyProfile.alias, component: Profile },
       ],
     },
-    { path: "/login", component: Login },
+    { path: RoutePaths.Login.path, alias: RoutePaths.Login.alias, name: RoutePaths.Login.name, component: Login },
   ],
   mode: "history",
 });

@@ -2,81 +2,69 @@
   <v-app>
     <v-dialog v-model="dialog" persistent max-width="600px" min-width="360px">
       <div>
-        <v-tabs
-          v-model="tab"
-          show-arrows
-          background-color="blue darken-3"
-          icons-and-text
-          dark
-          grow
-        >
+        <v-tabs v-model="tab" show-arrows background-color="blue darken-3" icons-and-text dark grow>
           <v-tabs-slider color="blue darken-1"></v-tabs-slider>
           <v-tab v-for="i in tabs" :key="i">
             <v-icon large>{{ i.icon }}</v-icon>
             <div class="caption py-1">{{ i.name }}</div>
           </v-tab>
+          <!--LOGIN -->
           <v-tab-item>
             <v-card class="px-4">
               <v-card-text>
-                <v-form ref="loginForm" v-model="valid" lazy-validation>
+                <v-form >
                   <v-row>
                     <v-col cols="12">
-                      <v-text-field
-                        v-model="loginEmail"
-                        :rules="loginEmailRules"
-                        label="E-mail"
-                        required
-                      ></v-text-field>
+                      <v-text-field v-model="loginForm.email"    label="E-mail" required></v-text-field>
+                      <small class="red--text" v-if="buttonIsClicked && $v.loginForm.email.$invalid" > Email alanı zorunludur.</small>
                     </v-col>
                     <v-col cols="12">
                       <v-text-field
-                        v-model="loginPassword"
-                        :append-icon="show1 ? 'eye' : 'eye-off'"
-                        :rules="[rules.required, rules.min]"
-                        :type="show1 ? 'text' : 'password'"
+                        v-model="loginForm.password"
                         name="input-10-1"
                         label="Password"
-                        hint="At least 8 characters"
+                        type="password"
+                        hint="At least 6 characters"
                         counter
-                        @click:append="show1 = !show1"
                       ></v-text-field>
+                      <small class="red--text" v-if="buttonIsClicked && $v.loginForm.password.$invalid" > Password alanı zorunludur.</small>
+
                     </v-col>
 
                     <v-col cols="12">
-                       <a @click="showRememberTab()" >  <span > <b>Şifremi unuttum</b>  </span></a>
+                      <a @click="showRememberTab()">
+                        <span>
+                          <b>Şifremi unuttum</b>
+                        </span>
+                      </a>
                     </v-col>
 
-                    <v-col class="d-flex" cols="12" sm="6" xsm="12"> </v-col>
+                    <v-col class="d-flex" cols="12" sm="6" xsm="12"></v-col>
                     <v-spacer></v-spacer>
                     <v-col class="d-flex" cols="12" sm="3" xsm="12" align-end>
                       <v-btn
                         x-large
                         block
-                        :disabled="!valid"
+                        @click="onLogin()"
                         color="success"
-                        @click="validate"
-                      >
-                        Login
-                      </v-btn>
+                        :loading="loading"
+                      >Login</v-btn>
                     </v-col>
                   </v-row>
                 </v-form>
               </v-card-text>
             </v-card>
           </v-tab-item>
-          <v-tab-item v-if="tabs.length>1">
+          <!--LOGIN END -->
+
+          <!-- REGISTER -->
+          <!-- <v-tab-item v-if="tabs.length>1">
             <v-card class="px-4">
               <v-card-text>
-                <v-form ref="registerForm" v-model="valid" lazy-validation>
+                <v-form ref="registerForm"  lazy-validation>
                   <v-row>
-                   
                     <v-col cols="12">
-                      <v-text-field
-                        v-model="email"
-                        :rules="emailRules"
-                        label="E-mail"
-                        required
-                      ></v-text-field>
+                      <v-text-field v-model="email" label="E-mail" required></v-text-field>
                     </v-col>
 
                     <v-spacer></v-spacer>
@@ -84,17 +72,15 @@
                       <v-btn
                         x-large
                         block
-                        :disabled="!valid"
                         color="success"
-                        @click="validate"
-                        >Register</v-btn
-                      >
+                      >Register</v-btn>
                     </v-col>
                   </v-row>
                 </v-form>
               </v-card-text>
             </v-card>
-          </v-tab-item>
+          </v-tab-item> -->
+          <!-- REGISTER END-->
         </v-tabs>
       </div>
     </v-dialog>
@@ -102,66 +88,21 @@
 </template>
 
 <script>
+
+import { data } from "./sections/data";
+import { methods } from "./sections/methods";
+import { validations} from "./sections/validations";
 export default {
-  name: "Login",
-  props: {
-    source: String,
+  
+  data(){
+    return data
   },
-  computed: {
-    passwordMatch() {
-      return () => this.password === this.verify || "Password must match";
-    },
-  },
-  methods: {
-
-    showRememberTab(){
-      var obj = { name: "Forget Password", icon: "mdi-account-outline" };
-      var isAdded = this.tabs.find(x=>x.name==obj.name);
-      if(isAdded==null) this.tabs.push(obj);
-    },
-
-    validate() {
-      if (this.$refs.loginForm.validate()) {
-        // submit form to server/API here...
-      }
-    },
-    reset() {
-      this.$refs.form.reset();
-    },
-    resetValidation() {
-      this.$refs.form.resetValidation();
-    },
-  },
-  data: () => ({
-    dialog: true,
-    tab: 0,
-    tabs: [
-      { name: "Login", icon: "mdi-account" },
-      // { name: "Register", icon: "mdi-account-outline" },
-    ],
-    valid: true,
-
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    verify: "",
-    loginPassword: "",
-    loginEmail: "",
-    loginEmailRules: [
-      (v) => !!v || "Required",
-      (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
-    ],
-    emailRules: [
-      (v) => !!v || "Required",
-      (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
-    ],
-
-    show1: false,
-    rules: {
-      required: (value) => !!value || "Required.",
-      min: (v) => (v && v.length >= 8) || "Min 8 characters",
-    },
-  }),
+  methods:methods,
+  validations:validations
+  
 };
 </script>
+
+<style  scoped>
+  
+</style>

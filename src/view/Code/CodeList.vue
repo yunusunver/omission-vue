@@ -70,6 +70,7 @@
 </template>
 
 <script>
+import { RoutePaths, Storages } from '../../utility/const';
 export default {
   data() {
     return {
@@ -276,8 +277,13 @@ export default {
   },
   methods:{
     openAddCode(){
-      this.$router.push({path:"kod-ekle"})
-    }
+      this.$router.push({path:RoutePaths.AddCode.alias})
+    },
+    
+  },
+  beforeMount(){
+    var storage = localStorage.getItem(Storages.OMISSION_USER);
+    if(storage==null || storage==undefined) {this.$router.push({path:RoutePaths.Login.alias})}
   }
 };
 </script>

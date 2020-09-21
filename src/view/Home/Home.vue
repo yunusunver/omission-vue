@@ -8,7 +8,7 @@
    
     <v-main>
       <v-container class="fill-height" fluid>
-        <v-row align="center" justify="center">
+        <v-row >
           <router-view></router-view>
         </v-row>
       </v-container>
@@ -21,6 +21,7 @@
 import {data} from "./sections/data";
 import {props} from "./sections/props";
 import {components} from "./sections/components";
+import { RoutePaths, Storages } from '../../utility/const';
 
 export default {
   
@@ -28,6 +29,19 @@ export default {
     return data
   },
   props:props,
-  components:components
+  components:components,
+   beforeMount(){
+    var storage = localStorage.getItem(Storages.OMISSION_USER);
+    if(storage==null || storage==undefined) {this.$router.push({path:RoutePaths.Login.alias})}
+  }
 };
 </script>
+
+<style scoped>
+  .v-main {
+    flex: 0 0 auto!important;
+  }
+
+  
+
+</style>

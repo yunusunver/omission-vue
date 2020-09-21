@@ -7,6 +7,9 @@ import router from "../src/router/index";
 
 Vue.config.productionTip = false;
 
+import Vuelidate from 'vuelidate'
+Vue.use(Vuelidate)
+
 new Vue({
   vuetify,
   render: (h) => h(App),
