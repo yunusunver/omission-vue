@@ -10,7 +10,8 @@
 </template>
 
 <script>
-import { RoutePaths, Storages } from '../../utility/const';
+import { apiEndPointPaths, RoutePaths, Storages } from '../../utility/const';
+import customAxios from "../../services/axios-service";
 export default {
   data() {
     return {
@@ -18,59 +19,58 @@ export default {
       date: new Date().toISOString().substr(0, 10),
       menu2: false,
 
+      /* 
+        createdDate: "2020-09-13T00:00:00"
+        id: 1
+        isDeleted: false
+        name: "Java "
+        orderId: 1
+        parentId: null
+        type: "programmingLanguage"
+        updatedDate: "2020-09-13T00:00:00"
+      */
+
       headers:[
         {
           text:"Id",
           value:"id"
         },
         {
-          text:"Language",
-          value:"language"
+          text:"Name",
+          value:"name"
         },
         {
-          text:"Image",
-          value:"imageUrl"
+          text:"Type",
+          value:"type"
         },
         {
-          text:"Created Date",
-          value:"createddate"
-        },
-        {
-          text:"Modified Date",
-          value:"modifieddate"
-        },
-        
+          text:"OrderId",
+          value:"orderId"
+        }, 
 
       ],
-      data:[
-        {
-          id:1,
-          language:"C#",
-          createddate:"2020-09-01 00:00",
-          modifieddate:"2020-09-01 00:00",
-          imageUrl:"Image"
-        },
-         {
-          id:2,
-          language:"JAVA",
-          createddate:"2020-09-01 00:00",
-          modifieddate:"2020-09-01 00:00",
-          imageUrl:"Image"
-
-        },
-        
-      ]
+      data:[]
 
     };
   },
   methods:{
     openAddCode(){
       this.$router.push({path:RoutePaths.AddCode.alias})
+    },
+    getCategories(){
+      var me = this;
+      customAxios.get(apiEndPointPaths.GetLookup+`?type=programmingLanguage`).then(result=>{
+        var response = result.data;
+        me.data = response;
+      });
     }
   },
   beforeMount(){
     var storage = localStorage.getItem(Storages.OMISSION_USER);
     if(storage==null || storage==undefined) {this.$router.push({path:RoutePaths.Login.alias})}
+  },
+  mounted(){
+    this.getCategories();
   }
 };
 </script>

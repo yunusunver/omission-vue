@@ -44,22 +44,22 @@ export const navigationDrawer = [
 export const apiEndPointPaths = {
 
     // CODE ENDPOINTS 
-    AddCode: "/api​/Code",
-    DeleteCode: "/api​/Code",
-    UpdateCode: "/api​/Code",
-    GetCodes: "/api​/Code",
+    AddCode: "api​/Code",
+    DeleteCode: "api​/Code",
+    UpdateCode: "api​/Code",
+    GetCodes: "api​/Code",
 
     // HASHTAG ENDPOINTS 
-    AddHashtag: "/api​/Hashtag",
-    DeleteHashtag: "/api​/Hashtag",
-    UpdateHashtag: "/api​/Hashtag",
-    GetHashtags: "/api​/Hashtag",
+    AddHashtag: "api​/Hashtag",
+    DeleteHashtag: "api​/Hashtag",
+    UpdateHashtag: "api​/Hashtag",
+    GetHashtags: "api​/Hashtag",
 
     // Lookup ENDPOINTS 
-    AddLookup: "/api​/Lookup",
-    DeleteLookup: "/api​/Lookup",
-    UpdateLookup: "/api​/Lookup",
-    GetLookup: "/api​/Lookup",
+    AddLookup: "api/Lookup",
+    DeleteLookup: "api​/Lookup",
+    UpdateLookup: "api​/Lookup",
+    GetLookup: "api/Lookup",
 
     // USER ENDPOINTS 
     Register: "/api/User/register",
