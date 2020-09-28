@@ -5,10 +5,10 @@ Vue.use(VueRouter);
 
 import Login from "../view/Login/Login.vue";
 import Home from "../view/Home/Home.vue";
-import CodeList from "../view/Code/CodeList.vue";
-import AddCode from "../view/Code/CodeAdd.vue";
-import ListCategory from "../view/Category/ListCategory.vue";
-import AddCategory from "../view/Category/AddCategory.vue";
+import ListCode from "../view/Code/components/ListCode/ListCode.vue";
+import AddCode from "../view/Code/components/AddCode/AddCode.vue";
+import ListCategory from "../view/Category/components/ListCategory/ListCategory.vue";
+import AddCategory from "../view/Category/components/AddCategory/AddCategory.vue";
 import Profile from "../view/User/Profile.vue";
 import { RoutePaths } from "../utility/const";
 
@@ -18,7 +18,7 @@ const router = new VueRouter({
       path: "/",
       component: Home,
       children: [
-        { path: RoutePaths.ListCodes.path, name: RoutePaths.ListCodes.name, alias: RoutePaths.ListCodes.alias, component: CodeList },
+        { path: RoutePaths.ListCodes.path, name: RoutePaths.ListCodes.name, alias: RoutePaths.ListCodes.alias, component: ListCode },
         { path: RoutePaths.AddCode.path, name: RoutePaths.AddCode.name, alias: RoutePaths.AddCode.alias, component: AddCode },
         {
           path: RoutePaths.ListCategory.path,

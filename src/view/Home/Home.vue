@@ -8,9 +8,7 @@
    
     <v-main>
       <v-container class="fill-height" fluid>
-        <v-row >
           <router-view></router-view>
-        </v-row>
       </v-container>
     </v-main>
     
