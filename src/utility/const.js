@@ -1,23 +1,21 @@
 export const navigationDrawer = [
-    // { icon: "mdi-contacts", text: "Forgets" ,alias:"/kod-listesi"  },
-    // { icon: "mdi-history", text: "Categories" , alias:"/kategori-listesi" },
-    // { icon: "mdi-content-copy", text: "Duplicates" },
+    
     {
-        icon: "mdi-chevron-up", "icon-alt": "mdi-chevron-down",
+        icon: "mdi-book-open-variant", "icon-alt": "mdi-book-open-variant",
         text: "Kategoriler",
         model: false,
         children: [
             { icon: "mdi-plus", text: "Kategori Ekle", alias: "/kategori-ekle" },
-            { icon: "mdi-plus", text: "Kategori Listele", alias: "/kategori-listesi" },
+            { icon: "mdi-view-list", text: "Kategori Listele", alias: "/kategori-listesi" },
         ],
     },
     {
-        icon: "mdi-chevron-up", "icon-alt": "mdi-chevron-down",
+        icon: "mdi-code-tags", "icon-alt": "mdi-code-tags",
         text: "Kodlar",
         model: false,
         children: [
-            { icon: "mdi-plus", text: "Kod Listesi", alias: "/kod-listesi" },
             { icon: "mdi-plus", text: "Kod Ekle", alias: "/kod-ekle" },
+            { icon: "mdi-view-list", text: "Kod Listesi", alias: "/kod-listesi" },
         ],
     },
     { icon: "mdi-cog", text: "Profilim", alias: "/profilim" },
@@ -58,9 +56,10 @@ export const apiEndPointPaths = {
     
     // Lookup ENDPOINTS 
     AddLookup: "api/Lookup",
-    DeleteLookup: "api​/Lookup",
-    UpdateLookup: "api​/Lookup",
+    DeleteLookup: "api/Lookup",
+    UpdateLookup: "api/Lookup",
     GetLookup: "api/Lookup",
+    GetLookupById:"api/Lookup/GetById",
 
     // USER ENDPOINTS 
     Register: "/api/User/register",

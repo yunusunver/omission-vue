@@ -11,6 +11,7 @@
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
     "moment": "^2.29.0",
+    "sweetalert2": "^10.3.7",
     "vue": "^2.6.11",
     "vue-router": "^3.4.3",
     "vuelidate": "^0.7.5",

@@ -38,7 +38,8 @@ export const methods = {
     },
 
     getUsedHashtags() {
-        var me = this;
+        var me = this; 
+        
         hashtagServices.getUsedHashTags().then(result => {
             var response = result.data;
             me.hashtags = response;

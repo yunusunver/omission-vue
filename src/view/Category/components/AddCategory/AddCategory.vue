@@ -30,8 +30,9 @@
         ></v-text-field>
 
         <v-row align="center" justify="center">
-          <v-btn color="success" :loading="loading" @click="addCategory()">
-            Add
+          <v-btn color="success" :loading="loading" @click="isEdit ? updateCategory(): addCategory()">
+            <span v-if="!isEdit">Add</span>
+            <span v-if="isEdit">Update</span>
           </v-btn>
 
           <v-btn @click="clearForm()"> Clear </v-btn>
@@ -60,5 +61,12 @@ export default {
       this.$router.push({ path: RoutePaths.Login.alias });
     }
   },
+  mounted(){
+    var categoryId = this.$route.query.categoryId;
+    if(categoryId) {
+      this.isEdit = true;
+      this.getCategoryById(categoryId);
+    }
+  }
 };
 </script>
