@@ -30,8 +30,8 @@
         ></v-text-field>
 
         <v-row align="center" justify="center">
-          <v-btn color="success" :loading="loading" @click="addCategory()">
-            <span > {{$t("category.buttons.add")}}  </span>
+          <v-btn color="success" :loading="loading" @click="updateCategory()">
+            <span > {{$t("category.buttons.update")}}  </span>
           </v-btn>
 
           <v-btn @click="clearForm()"> {{$t("category.buttons.clear")}} </v-btn>
@@ -43,10 +43,10 @@
 
 <script>
 import { RoutePaths, Storages } from "../../../../utility/const";
-import { data } from "../../components/AddCategory/sections/data";
-import { methods } from "../../components/AddCategory/sections/methods";
-import { validations } from "../../components/AddCategory/sections/validations";
-import { computed } from "../../components/AddCategory/sections/computed";
+import { data } from "./sections/data";
+import { methods } from "./sections/methods";
+import { validations } from "./sections/validations";
+import { computed } from "./sections/computed";
 export default {
   data() {
     return data;
@@ -58,6 +58,12 @@ export default {
     var storage = localStorage.getItem(Storages.OMISSION_USER);
     if (storage == null || storage == undefined) {
       this.$router.push({ path: RoutePaths.Login.alias });
+    }
+  },
+  mounted(){
+    var categoryId = this.$route.params.categoryId;
+    if(categoryId) {
+      this.getCategoryById(categoryId);
     }
   }
 };

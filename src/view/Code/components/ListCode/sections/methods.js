@@ -9,7 +9,7 @@ export const methods = {
         var me = this;
         me.isLoading = true;
         codeServices.getCodes().then(result=>{
-            var response = result.data;
+            var response = result.data.data;
             me.isLoading = false;
             me.codeList  = response;
         }).catch(err=>{me.isLoading = false});

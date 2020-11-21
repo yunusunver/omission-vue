@@ -1,6 +1,5 @@
 {
-  "navs":{
-    
+  "navs":{ 
     "category":{
       "list":"Categories",
       "add":"Add Category",
@@ -13,5 +12,70 @@
       "update":"Update Code"
     },
     "profile":"My Profile"
-  }
+  },
+
+  "category":{
+    "table":{
+      "columns":{
+        "name":"Category Name",
+        "type":"Type",
+        "orderId":"Order No",
+        "actions":"Actions"
+      }
+    },
+
+    "labels":{
+      "name":"Category Name",
+        "type":"Type",
+        "orderId":"Order No"
+    },
+    "buttons":{
+      "add":"Add Category",
+      "update": "Update Category",
+      "clear":"Clear"
+    },
+    "validations":{
+      "required":"This field is required"
+    }
+  },
+
+  "code":{
+    "table":{
+      "columns":{
+        "title":"Code Title",
+        "description":"Description",
+        "programmingLanguage":"Language",
+        "body":"Code",
+        "hashtags":"Hashtags",
+        "createdDate":"Created Date",
+        "actions":"Actions"
+      }
+    },
+    "labels":{
+      "title":"Code Title",
+      "description":"Description",
+      "programmingLanguage":"Language",
+      "body":"Code",
+      "hashtags":"Hashtags"
+    },
+    "filters":{
+      "startDate":"Start Date",
+      "endDate":"End Date"
+    },
+    "buttons":{
+      "add":"Add Code",
+      "clear":"Clear"
+    },
+    "validations":{
+      "required":"This field is required"
+    }
+  },
+
+  "actions":{
+    "remove":"Remove",
+    "update":"Update"
+  },
+  "search":"Search"
+
+
 }

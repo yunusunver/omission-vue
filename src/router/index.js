@@ -9,6 +9,7 @@ import ListCode from "../view/Code/components/ListCode/ListCode.vue";
 import AddCode from "../view/Code/components/AddCode/AddCode.vue";
 import ListCategory from "../view/Category/components/ListCategory/ListCategory.vue";
 import AddCategory from "../view/Category/components/AddCategory/AddCategory.vue";
+import UpdateCategory from "../view/Category/components/UpdateCategory/UpdateCategory.vue";
 import Profile from "../view/User/Profile.vue";
 import { RoutePaths } from "../utility/const";
 
@@ -26,7 +27,9 @@ const router = new VueRouter({
           component: ListCategory,
           name: RoutePaths.ListCategory.name
         },
-        { path: RoutePaths.AddCategory.path, name: RoutePaths.AddCode.name, alias: RoutePaths.AddCategory.alias, component: AddCategory },
+        { path: RoutePaths.AddCategory.path, name: RoutePaths.AddCategory.name, alias: RoutePaths.AddCategory.alias, component: AddCategory },
+        { path: RoutePaths.UpdateCategory.path, name: RoutePaths.UpdateCategory.name, alias: RoutePaths.UpdateCategory.alias, component: UpdateCategory },
+
         { path: RoutePaths.MyProfile.path, name: RoutePaths.MyProfile.name, alias: RoutePaths.MyProfile.alias, component: Profile },
       ],
     },

@@ -1,16 +1,74 @@
 {
-  "navs":{
-    "category":{
-      "list":"Kategoriler",
-      "add":"Kategori Ekle",
-      "update":"Kategori Güncelle"
+  "navs": {
+    "category": {
+      "list": "Kategoriler",
+      "add": "Kategori Ekle",
+      "update": "Kategori Güncelle"
     },
-
-    "code":{
-      "list":"Kodlar",
+    "code": {
+      "list": "Kodlar",
+      "add": "Kod Ekle",
+      "update": "Kod Güncelleme"
+    },
+    "profile": "Profilim"
+  },
+  "category": {
+    "table": {
+      "columns": {
+        "name": "Kategori Adı",
+        "type": "Tip",
+        "orderId": "Sıra No",
+        "actions": "İşlemler"
+      }
+    },
+    "labels": {
+      "name": "Kategori Adı",
+      "type": "Tip",
+      "orderId": "Sıra No"
+    },
+    "buttons": {
+      "add": "Kategori Ekle",
+      "update": "Kategori Güncelle",
+      "clear": "Temizle"
+    },
+    "validations":{
+      "required":"Bu alan zorunludur."
+    }
+  },
+  "code":{
+    "table":{
+      "columns":{
+        "title":"Kod Başlığı",
+        "description":"Açıklama",
+        "programmingLanguage":"Dil",
+        "body":"Kod",
+        "hashtags":"Etiketler",
+        "createdDate":"Oluşturulma Tarihi",
+        "actions":"İşlemler"
+      }
+    },
+    "labels":{
+      "title":"Kod Başlığı",
+      "description":"Açıklama",
+      "programmingLanguage":"Dil",
+      "body":"Kod",
+      "hashtags":"Etiketler"
+    },
+    "filters":{
+      "startDate":"Başlangıç Tarihi",
+      "endDate":"Bitiş Tarihi"
+    },
+    "buttons":{
       "add":"Kod Ekle",
-      "update":"Kod Güncelleme"
+      "clear":"Temizle"
     },
-    "profile":"Profilim"
-  }
+    "validations":{
+      "required":"Bu alan zorunludur."
+    }
+  },
+  "actions": {
+    "remove": "Sil",
+    "update": "Güncelle"
+  },
+  "search": "Ara"
 }

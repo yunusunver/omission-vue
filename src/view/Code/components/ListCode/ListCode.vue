@@ -3,7 +3,7 @@
     <v-col cols="12">
       <v-row v-if="!isLoading">
         <v-col cols="3">
-          <v-text-field label="Ara"></v-text-field>
+          <v-text-field :label="$t('search')"></v-text-field>
         </v-col>
 
         <v-col cols="2">
@@ -18,7 +18,7 @@
             <template v-slot:activator="{ on, attrs }">
               <v-text-field
                 v-model="startDate"
-                label="Başlangıç Tarihi"
+                :label="$t('code.filters.startDate')"
                 readonly
                 v-bind="attrs"
                 v-on="on"
@@ -43,7 +43,7 @@
             <template v-slot:activator="{ on, attrs }">
               <v-text-field
                 v-model="endDate"
-                label="Bitiş Tarihi"
+                :label="$t('code.filters.endDate')"
                 readonly
                 v-bind="attrs"
                 v-on="on"
@@ -57,9 +57,9 @@
         </v-col>
 
         <v-col>
-          <v-btn color="primary"> Ara </v-btn>
+          <v-btn color="primary"> {{$t('search')}}  </v-btn>
           <v-btn color="warning" class="ml-5" @click="openAddCode()"
-            >+Ekle</v-btn
+            > {{$t('code.buttons.add')}}  </v-btn
           >
         </v-col>
       </v-row>
@@ -68,18 +68,17 @@
         <template v-slot:default>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Programming Language</th>
-              <th>Code</th>
-              <th>Hashtags</th>
-              <th>Created Date</th>
-              <th>Actions</th>
+              <th>{{ $t("code.table.columns.title") }}</th>
+              <th>{{ $t("code.table.columns.description") }}</th>
+              <th>{{ $t("code.table.columns.programmingLanguage") }}</th>
+              <th>{{ $t("code.table.columns.body") }}</th>
+              <th>{{ $t("code.table.columns.hashtags") }}</th>
+              <th>{{ $t("code.table.columns.createdDate") }}</th>
+              <th>{{ $t("code.table.columns.actions") }}</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="(item, index) in codeList" :key="index">
-            
               <td>{{ item.title }}</td>
               <td>{{ item.description }}</td>
               <td>{{ item.programmingLanguage }}</td>

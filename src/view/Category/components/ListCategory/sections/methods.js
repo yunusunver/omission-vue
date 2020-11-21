@@ -30,7 +30,7 @@ export const methods = {
     },
 
     editCategory(categoryId) {
-        this.$router.push({ path: RoutePaths.AddCategory.alias, query: { categoryId: categoryId } });
+        this.$router.push(`/kategori-güncelle/${categoryId}`);
     },
     deleteCategory(category) {
         var me = this;

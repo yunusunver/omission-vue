@@ -8,12 +8,12 @@ export const navigationDrawer = [
         children: [
             {
                 icon: "mdi-plus",
-                translate: "navs.category.list",
+                translate: "navs.category.add",
                 text: "Kategori Ekle", alias: "/kategori-ekle"
             },
             {
                 icon: "mdi-view-list",
-                translate: "navs.category.add",
+                translate: "navs.category.list",
                 text: "Kategori Listele", alias: "/kategori-listesi"
             },
         ],
@@ -102,12 +102,13 @@ export const Storages = {
 
 export const RoutePaths = {
     // CODE // 
-    ListCodes: { alias: "kod-listesi", path: "listCode", name: "Get Codes" },
-    AddCode: { alias: "kod-ekle", path: "addCode", name: "Add Code" },
+    ListCodes: { alias: "/kod-listesi", path: "listCode", name: "Get Codes" },
+    AddCode: { alias: "/kod-ekle", path: "addCode", name: "Add Code" },
 
     // CATEGORY // 
-    ListCategory: { alias: "kategori-listesi", path: "categorylist", name: "Get Categories" },
-    AddCategory: { alias: "kategori-ekle", path: "addCategory", name: "Add Category" },
+    ListCategory: { alias: "/kategori-listesi", path: "categorylist", name: "Get Categories" },
+    AddCategory: { alias: "/kategori-ekle", path: "addCategory", name: "Add Category" },
+    UpdateCategory: { alias: "/kategori-güncelle/:categoryId", path: "/updateCategory/:categoryId", name: "Update Category" },
 
     // MYPROFILE
     MyProfile: { alias: "profilim", path: "myProfile", name: "My Profile" },

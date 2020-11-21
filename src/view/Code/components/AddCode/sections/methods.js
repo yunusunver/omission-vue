@@ -31,8 +31,12 @@ export const methods = {
     },
     getProgrammingLanguages() {
         var me = this;
-        categoryServices.getCategories().then(result => {
-            var response = result.data;
+        var params = {
+            limit:-1,
+            page:1
+        };
+        categoryServices.getCategories(params).then(result => {
+            var response = result.data.data;
             me.languages = response;
         });
     },
