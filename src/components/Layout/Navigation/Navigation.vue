@@ -1,5 +1,9 @@
 <template>
-  <v-navigation-drawer v-model="drawer" :clipped="$vuetify.breakpoint.lgAndUp" app>
+  <v-navigation-drawer
+    v-model="drawer"
+    :clipped="$vuetify.breakpoint.lgAndUp"
+    app
+  >
     <v-list dense>
       <template v-for="item in items">
         <v-row v-if="item.heading" :key="item.heading" align="center">
@@ -19,24 +23,29 @@
         >
           <template v-slot:activator>
             <v-list-item-content>
-              <v-list-item-title>{{ item.text }}</v-list-item-title>
+              <v-list-item-title> {{ $t(item.translate) }} </v-list-item-title>
             </v-list-item-content>
           </template>
-          <v-list-item v-for="(child, i) in item.children" :to="child.alias" :key="i" link>
+          <v-list-item
+            v-for="(child, i) in item.children"
+            :to="child.alias"
+            :key="i"
+            link
+          >
             <v-list-item-action v-if="child.icon">
               <v-icon>{{ child.icon }}</v-icon>
             </v-list-item-action>
             <v-list-item-content>
-              <v-list-item-title>{{ child.text }}</v-list-item-title>
+              <v-list-item-title>{{ $t(child.translate) }} </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list-group>
-        <v-list-item v-else :key="item.text" :to="item.alias"  link  >
+        <v-list-item v-else :key="item.text" :to="item.alias" link>
           <v-list-item-action>
-          <v-icon>{{ item.icon }}</v-icon>
+            <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>{{ item.text }}</v-list-item-title>
+            <v-list-item-title> {{ $t(item.translate) }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </template>
@@ -45,14 +54,14 @@
 </template>
 
 <script>
-import {data} from "./sections/data";
-import {props} from "./sections/props";
-import {methods} from "./sections/methods";
+import { data } from "./sections/data";
+import { props } from "./sections/props";
+import { methods } from "./sections/methods";
 export default {
-    data(){
-      return data;
-    },
-    props:props,
-    methods:methods
+  data() {
+    return data;
+  },
+  props: props,
+  methods: methods,
 };
 </script>

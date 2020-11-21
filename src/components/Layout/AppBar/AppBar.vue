@@ -27,13 +27,38 @@
     <v-btn icon @click="logout()">
       <v-icon>mdi-logout</v-icon>
     </v-btn>
+
+    <v-col cols="1">
+      <v-select :items="languages" v-model="selectedLanguage"   >
+        <template v-slot:selection="{ item }">
+          <img width="24" height="24" :src="getImage(item)" />
+          <span class="ml-2">{{ item.name }}</span>
+        </template>
+        <template v-slot:item="{ item }">
+          <img width="24" height="24" :src="getImage(item)" />
+          <span class="ml-2">{{ item.name }}</span>
+        </template>
+      </v-select>
+    </v-col>
   </v-app-bar>
 </template>
 
 <script>
+import { Languages } from "../../../utility/const";
 import { methods } from "./sections/methods";
 export default {
   methods: methods,
+  data() {
+    return {
+      languages: Languages,
+      selectedLanguage:process.env.VUE_APP_I18N_LOCALE
+    };
+  },
+  watch:{
+    selectedLanguage:function (value) {
+       this.$i18n.locale = value;
+    }
+  }
 };
 </script>
 

@@ -1,0 +1,17 @@
+{
+  "navs":{
+    
+    "category":{
+      "list":"Categories",
+      "add":"Add Category",
+      "update":"Update Category"
+    },
+
+    "code":{
+      "list":"Codes",
+      "add":"Add Code",
+      "update":"Update Code"
+    },
+    "profile":"My Profile"
+  }
+}

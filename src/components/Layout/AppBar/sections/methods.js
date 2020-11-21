@@ -8,5 +8,8 @@ export const methods = {
         localStorage.clear();
         this.$router.push({path:RoutePaths.Login.alias});
 
+    },
+    getImage(item){
+        return  require(`../../../../assets/lang/${item.image}`);
     }
 };

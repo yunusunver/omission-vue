@@ -1,24 +1,47 @@
 export const navigationDrawer = [
-    
+
     {
         icon: "mdi-book-open-variant", "icon-alt": "mdi-book-open-variant",
         text: "Kategoriler",
         model: false,
+        translate: "navs.category.list",
         children: [
-            { icon: "mdi-plus", text: "Kategori Ekle", alias: "/kategori-ekle" },
-            { icon: "mdi-view-list", text: "Kategori Listele", alias: "/kategori-listesi" },
+            {
+                icon: "mdi-plus",
+                translate: "navs.category.list",
+                text: "Kategori Ekle", alias: "/kategori-ekle"
+            },
+            {
+                icon: "mdi-view-list",
+                translate: "navs.category.add",
+                text: "Kategori Listele", alias: "/kategori-listesi"
+            },
         ],
+
     },
     {
         icon: "mdi-code-tags", "icon-alt": "mdi-code-tags",
         text: "Kodlar",
         model: false,
+        translate: "navs.code.list",
         children: [
-            { icon: "mdi-plus", text: "Kod Ekle", alias: "/kod-ekle" },
-            { icon: "mdi-view-list", text: "Kod Listesi", alias: "/kod-listesi" },
+            {
+                icon: "mdi-plus",
+                translate: "navs.code.add",
+                text: "Kod Ekle", alias: "/kod-ekle"
+            },
+            {
+                icon: "mdi-view-list",
+                translate: "navs.code.list",
+                text: "Kod Listesi", alias: "/kod-listesi"
+            },
         ],
     },
-    { icon: "mdi-cog", text: "Profilim", alias: "/profilim" },
+    {
+        icon: "mdi-cog",
+        translate: "navs.profile",
+        text: "Profilim", alias: "/profilim"
+    },
 
     // {
     //     icon: "mdi-chevron-up",
@@ -52,14 +75,14 @@ export const apiEndPointPaths = {
     DeleteHashtag: "api​/Hashtag",
     UpdateHashtag: "api​/Hashtag",
     GetHashtags: "api​/Hashtag",
-    GetUsedHashtags:"api/Hashtag/GetUsedHashtags",
-    
+    GetUsedHashtags: "api/Hashtag/GetUsedHashtags",
+
     // Lookup ENDPOINTS 
     AddLookup: "api/Lookup",
     DeleteLookup: "api/Lookup",
     UpdateLookup: "api/Lookup",
     GetLookup: "api/Lookup",
-    GetLookupById:"api/Lookup/GetById",
+    GetLookupById: "api/Lookup/GetById",
 
     // USER ENDPOINTS 
     Register: "/api/User/register",
@@ -91,3 +114,8 @@ export const RoutePaths = {
     // Sub Route
     Login: { alias: "/login", path: "login", name: "Login" }
 };
+
+export const Languages = [
+    { name: "Türkçe", value: process.env.VUE_APP_I18N_FALLBACK_LOCALE, image: "tr.jpeg" },
+    { name: "English", value: process.env.VUE_APP_I18N_LOCALE, image: "en.png" },
+]

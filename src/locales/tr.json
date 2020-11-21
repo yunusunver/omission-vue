@@ -1,0 +1,16 @@
+{
+  "navs":{
+    "category":{
+      "list":"Kategoriler",
+      "add":"Kategori Ekle",
+      "update":"Kategori Güncelle"
+    },
+
+    "code":{
+      "list":"Kodlar",
+      "add":"Kod Ekle",
+      "update":"Kod Güncelleme"
+    },
+    "profile":"Profilim"
+  }
+}

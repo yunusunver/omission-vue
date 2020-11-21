@@ -8,10 +8,12 @@ import router from "../src/router/index";
 Vue.config.productionTip = false;
 
 import Vuelidate from 'vuelidate'
+import i18n from './i18n'
 Vue.use(Vuelidate)
 
 new Vue({
   vuetify,
   render: (h) => h(App),
-  router,
+  i18n,
+  router
 }).$mount("#app");
