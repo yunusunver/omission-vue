@@ -28,7 +28,7 @@
       <v-icon>mdi-logout</v-icon>
     </v-btn>
 
-    <v-col cols="1">
+    <v-col cols="2" style="margin-top:20px">
       <v-select :items="languages" v-model="selectedLanguage"   >
         <template v-slot:selection="{ item }">
           <img width="24" height="24" :src="getImage(item)" />
