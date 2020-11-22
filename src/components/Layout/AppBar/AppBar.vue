@@ -41,7 +41,7 @@
       </v-select>
     </v-col>
   </v-app-bar>
-</template>
+</template> 
 
 <script>
 import { Languages } from "../../../utility/const";
