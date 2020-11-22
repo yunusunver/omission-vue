@@ -67,7 +67,7 @@ export const apiEndPointPaths = {
     // CODE ENDPOINTS 
     AddCode: "api/Code",
     DeleteCode: "api​/Code",
-    UpdateCode: "api​/Code",
+    UpdateCode: "api/Code",
     GetCodes: "api/Code",
     GetCodeById:"api/Code/GetCodeById",
 
