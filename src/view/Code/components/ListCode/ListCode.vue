@@ -57,10 +57,10 @@
         </v-col>
 
         <v-col>
-          <v-btn color="primary"> {{$t('search')}}  </v-btn>
-          <v-btn color="warning" class="ml-5" @click="openAddCode()"
-            > {{$t('code.buttons.add')}}  </v-btn
-          >
+          <v-btn color="primary"> {{ $t("search") }} </v-btn>
+          <v-btn color="warning" class="ml-5" @click="openAddCode()">
+            {{ $t("code.buttons.add") }}
+          </v-btn>
         </v-col>
       </v-row>
 
@@ -86,13 +86,29 @@
               <td>{{ item.hashTags | handleHashtags }}</td>
               <td>{{ item.createdDate | handleDate }}</td>
               <td>
-                <v-btn  @click="routeUpdate(item)" class="mx-1" fab x-small dark color="success">
-                  <v-icon dark>mdi-plus</v-icon>
+                <v-btn
+                  @click="routeUpdate(item)"
+                  :title="$t('actions.update')"
+                  class="mx-1"
+                  fab
+                  x-small
+                  dark
+                  color="primary"
+                >
+                  <v-icon dark>mdi-table-edit</v-icon>
                 </v-btn>
 
-                <!-- <v-btn class="mx-1" fab x-small dark color="red">
-                  <v-icon dark>mdi-home</v-icon>
-                </v-btn> -->
+                <v-btn
+                  class="mx-1"
+                  :title="$t('actions.remove')"
+                  @click="removeCode(item)"
+                  fab
+                  x-small
+                  dark
+                  color="red"
+                >
+                  <v-icon dark>mdi-delete</v-icon>
+                </v-btn>
               </td>
             </tr>
           </tbody>
@@ -128,8 +144,6 @@
       </v-col>
     </v-row>
   </v-row>
-
-  
 </template>
 
 <script>
@@ -146,7 +160,7 @@ export default {
   methods: methods,
   components: components,
   filters: filters,
-  watch:watch,
+  watch: watch,
   beforeMount() {
     var storage = localStorage.getItem(Storages.OMISSION_USER);
     if (storage == null || storage == undefined) {

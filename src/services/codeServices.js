@@ -16,6 +16,10 @@ export const codeServices = {
 
     async getCodeById(id){
         return await customAxios.get(apiEndPointPaths.GetCodeById+`/${id}`);
+    },
+
+    async removeCode(id){
+        return await customAxios.delete(apiEndPointPaths.RemoveCode+`/${id}`);
     }
 
 };
