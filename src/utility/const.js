@@ -69,6 +69,7 @@ export const apiEndPointPaths = {
     DeleteCode: "api​/Code",
     UpdateCode: "api​/Code",
     GetCodes: "api/Code",
+    GetCodeById:"api/Code/GetCodeById",
 
     // HASHTAG ENDPOINTS 
     AddHashtag: "api​/Hashtag",
@@ -104,6 +105,7 @@ export const RoutePaths = {
     // CODE // 
     ListCodes: { alias: "/kod-listesi", path: "listCode", name: "Get Codes" },
     AddCode: { alias: "/kod-ekle", path: "addCode", name: "Add Code" },
+    UpdateCode: { alias: "/kod-güncelleme/:codeId", path: "updateCode/:codeId", name: "Update Code" },
 
     // CATEGORY // 
     ListCategory: { alias: "/kategori-listesi", path: "categorylist", name: "Get Categories" },

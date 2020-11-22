@@ -86,13 +86,13 @@
               <td>{{ item.hashTags | handleHashtags }}</td>
               <td>{{ item.createdDate | handleDate }}</td>
               <td>
-                <v-btn class="mx-1" fab x-small dark color="success">
+                <v-btn  @click="routeUpdate(item)" class="mx-1" fab x-small dark color="success">
                   <v-icon dark>mdi-plus</v-icon>
                 </v-btn>
 
-                <v-btn class="mx-1" fab x-small dark color="red">
+                <!-- <v-btn class="mx-1" fab x-small dark color="red">
                   <v-icon dark>mdi-home</v-icon>
-                </v-btn>
+                </v-btn> -->
               </td>
             </tr>
           </tbody>
@@ -101,7 +101,35 @@
 
       <base-loader v-if="isLoading"> </base-loader>
     </v-col>
+
+    <v-row justify="end">
+      <v-col cols="1" class="mt-3">
+        <v-select
+          v-model="limit"
+          :items="pageList"
+          label="Select"
+          persistent-hint
+          return-object
+          single-line
+        ></v-select>
+      </v-col>
+      <v-col cols="4">
+        <v-container class="max-width">
+          <v-pagination
+            v-model="selectedPage"
+            @next="getCodes()"
+            @previous="getCodes()"
+            @input="getCodes()"
+            circle
+            class="my-4"
+            :length="pageLength"
+          ></v-pagination>
+        </v-container>
+      </v-col>
+    </v-row>
   </v-row>
+
+  
 </template>
 
 <script>
@@ -110,6 +138,7 @@ import { data } from "./sections/data";
 import { methods } from "./sections/methods";
 import { components } from "./sections/components";
 import { filters } from "./sections/filters";
+import { watch } from "./sections/watch";
 export default {
   data() {
     return data;
@@ -117,6 +146,7 @@ export default {
   methods: methods,
   components: components,
   filters: filters,
+  watch:watch,
   beforeMount() {
     var storage = localStorage.getItem(Storages.OMISSION_USER);
     if (storage == null || storage == undefined) {

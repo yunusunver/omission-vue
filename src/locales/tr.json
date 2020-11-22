@@ -60,7 +60,9 @@
     },
     "buttons":{
       "add":"Kod Ekle",
-      "clear":"Temizle"
+      "clear":"Temizle",
+      "update":"Kod Güncelle"
+
     },
     "validations":{
       "required":"Bu alan zorunludur."

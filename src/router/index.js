@@ -7,6 +7,7 @@ import Login from "../view/Login/Login.vue";
 import Home from "../view/Home/Home.vue";
 import ListCode from "../view/Code/components/ListCode/ListCode.vue";
 import AddCode from "../view/Code/components/AddCode/AddCode.vue";
+import UpdateCode from "../view/Code/components/UpdateCode/UpdateCode.vue";
 import ListCategory from "../view/Category/components/ListCategory/ListCategory.vue";
 import AddCategory from "../view/Category/components/AddCategory/AddCategory.vue";
 import UpdateCategory from "../view/Category/components/UpdateCategory/UpdateCategory.vue";
@@ -21,6 +22,7 @@ const router = new VueRouter({
       children: [
         { path: RoutePaths.ListCodes.path, name: RoutePaths.ListCodes.name, alias: RoutePaths.ListCodes.alias, component: ListCode },
         { path: RoutePaths.AddCode.path, name: RoutePaths.AddCode.name, alias: RoutePaths.AddCode.alias, component: AddCode },
+        { path: RoutePaths.UpdateCode.path, name: RoutePaths.UpdateCode.name, alias: RoutePaths.UpdateCode.alias, component: UpdateCode },
         {
           path: RoutePaths.ListCategory.path,
           alias: RoutePaths.ListCategory.alias,

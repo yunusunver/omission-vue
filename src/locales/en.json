@@ -64,6 +64,7 @@
     },
     "buttons":{
       "add":"Add Code",
+      "update":"Update Code",
       "clear":"Clear"
     },
     "validations":{
